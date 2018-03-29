@@ -84,7 +84,7 @@ def do_client_option(option, client)
     client.destroy
     print_client_destroy
   when 4
-    main_program
+    goodbye
   else
     print_invalid_client_option
     show_client_options(client)

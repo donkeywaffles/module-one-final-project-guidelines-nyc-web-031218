@@ -23,7 +23,7 @@ def main_program
   puts "Press the enter/return to continue"
   puts "To exit program: type the word 'exit'\n"
   continue = gets.chomp.downcase
-  abort("\nHope to see you soon!\n") unless continue != "exit"
+  abort(goodbye) unless continue != "exit"
   user = user_check
   existing = existing_account_check
   if user == 'c'

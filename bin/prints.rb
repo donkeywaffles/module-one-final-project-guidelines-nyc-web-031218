@@ -19,12 +19,12 @@ def print_realtor_options
   puts "#  1. View all listings        #"
   puts "#  2. View all your clients    #"
   puts "#  3. Get clients's listings   #"
-  puts "#  4. Aquire new client        #"
+  puts "#  4. Acquire new client       #"
   puts "#  5. Drop a client            #"
   puts "#  6. Create a new listing     #"
   puts "#  7. Drop a listing           #"
   puts "#  8. Close a deal             #"
-  puts "#  9. Return to main meu       #"
+  puts "#  9. Exit program             #"
   puts "################################"
   puts "\nChoose an option (1-9):\n"
 end
@@ -149,7 +149,7 @@ def print_client_options
   puts "#  1. View your profile               #"
   puts "#  2. View your realtor information   #"
   puts "#  3. Delete your account             #"
-  puts "#  4. Return to main menu             #"
+  puts "#  4. Exit program                    #"
   puts "#######################################"
   puts "\nPlease choose an option(1-4):"
 end
@@ -249,4 +249,15 @@ def print_invalid_user_input
   puts "|- - - - - - - - - - - - - - - - - - - - - - - - - -|"
   puts "|  Please input 'r' for realtor and 'c' for client  |"
   puts " ---------------------------------------------------\n"
+end
+
+def goodbye
+  puts "\n\n#####################################"
+  puts '#####################################'
+  puts '##                                 ##'
+  puts '##       THANK YOU FOR USING       ##'
+  puts '##         FLATIRON REALTY         ##'
+  puts '##                                 ##'
+  puts '#####################################'
+  puts "#####################################\n\n"
 end

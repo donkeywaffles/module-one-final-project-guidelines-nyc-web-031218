@@ -77,8 +77,7 @@ def do_realtor_option(option, realtor)
     print_close_deal(realtor)
     show_realtor_options(realtor)
   when 9
-    puts "\nReturning to main menu!"
-    main_program
+    goodbye
   else
     print_invalid_realtor_input
     show_realtor_options(realtor)
