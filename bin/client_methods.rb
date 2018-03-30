@@ -1,6 +1,5 @@
 def prompt_client_username
-  puts "\nPlease input your user name:\n"
-  user_name = gets.chomp
+  user_name = get_username
   while Client.all.find_by(user_name: user_name) == nil
     print_invalid_username
     user_name = gets.chomp
@@ -9,8 +8,7 @@ def prompt_client_username
 end
 
 def prompt_client_password(user_name)
-  puts "\nPlease input your password:\n"
-  password = gets.chomp
+  password = get_password
   while Client.all.find_by(user_name: user_name).password != password
     print_invalid_password
     password = gets.chomp
@@ -19,8 +17,7 @@ def prompt_client_password(user_name)
 end
 
 def create_client
-  puts "\nPlease enter a user name:\n"
-  user_name = gets.chomp
+  user_name = get_username
   while Client.all.find_by(user_name: user_name)
     print_invalid_username_taken
     user_name = gets.chomp.to_i
@@ -28,38 +25,25 @@ def create_client
     password_1 = 1
     password_2 = 2
   while password_1 != password_2
-    puts "\nPlease enter a password:\n"
-    password_1 = gets.chomp
-    puts "Please re-enter your password:\n"
-    password_2 = gets.chomp
+    password_1 = get_password
+    password_2 = get_password_re_entered
   end
-  puts "\nPlease enter your name:\n"
-  name = gets.chomp
-  puts "Please enter your phone number (xxx-xxx-xxxx):\n"
-  phone = gets.chomp
-  puts "Please enter your email:\n"
-  email = gets.chomp
-  ### No for the apartment question
-  puts "\nOk. So now for the good stuff!\n"
-  puts "What city would you like to live in?\n"
-  city = gets.chomp
-  puts "What neighborhood would you like to see listings for?\n"
-  neighborhood = gets.chomp
-  puts "How many bedrooms?\n"
-  bedrooms = gets.chomp
-  puts "How many bathrooms?\n"
-  bathrooms = gets.chomp
-  puts "Do you have any pets? Answer 'y' for yes, 'n' for no\n"
-  pets = gets.chomp.downcase
+  name = get_name
+  phone = get_phone
+  email = get_email
+  print_preference_option
+  city = get_city
+  neighborhood = get_neighborhood
+  bedrooms = get_bedrooms
+  bathrooms = get_bathrooms
+  pets = get_pets_has_any
   if pets == 'y'
     pets = true
   else
     pets = false
   end
-  puts "What is your lowest price?\n"
-  lowest_price = gets.chomp
-  puts "What is your highest price?\n"
-  highest_price = gets.chomp
+  lowest_price = get_lowest_price
+  highest_price = get_highest_price
 
   user = Client.create(name: name, user_name: user_name, password: password_1,
     phone: phone, email: email, city: city, neighborhood: neighborhood, bedrooms: bedrooms,
@@ -81,9 +65,12 @@ def do_client_option(option, client)
     view_realtor_info(client)
     show_client_options(client)
   when 3
+    update_client_options(client)
+  when 4
     client.destroy
     print_client_destroy
-  when 4
+    goodbye
+  when 5
     goodbye
   else
     print_invalid_client_option
@@ -104,4 +91,50 @@ end
 
 def show_client_info(client)
   print_client_info(client)
+end
+
+def update_client_options(client)
+  print_client_update_options
+  option = gets.chomp.to_i
+  case option
+  when 1
+    city = get_city
+    client.update(city: city)
+    update_client_options(client)
+  when 2
+    neighborhood = get_neighborhood
+    client.update(neighborhood: neighborhood)
+    update_client_options(client)
+  when 3
+    bedrooms = get_bedrooms
+    client.update(bedrooms: bedrooms)
+    update_client_options(client)
+  when 4
+    bathrooms = get_bathrooms
+    client.update(bathrooms: bathrooms)
+    update_client_options(client)
+  when 5
+    lowest_price = get_lowest_price
+    client.update(lowest_price: lowest_price)
+    update_client_options(client)
+  when 6
+    highest_price = get_highest_price
+    client.update(highest_price: highest_price)
+    update_client_options(client)
+  when 7
+    pets = get_pets_has_any
+    if pets == 'y'
+      pets = true
+    else
+      pets = false
+    end
+    client.update(pets: pets)
+    show_client_options(client)
+  when 8
+    show_client_options(client)
+  else
+    print_invalid_client_option_update
+    update_client_options(client)
+  end
+
 end

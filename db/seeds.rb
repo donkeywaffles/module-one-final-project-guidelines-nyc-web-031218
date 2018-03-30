@@ -1,6 +1,9 @@
 
 jon = Realtor.create(name: "Jon", user_name: "Jon", password: "password", phone: "324-342-3254", email: "Jon@Flatironreality.com")
 justin = Realtor.create(name: "Justin", user_name: "Justin", password: "pass", phone: "543-353-3532", email: "Justin@Flatironreality.com")
+anthony = Client.create(name: "Anthony", user_name: "Anthony", password: "anthony", phone: "534-657-5463", email: "Anthony@Circa.com", city: "New York", neighborhood: "Brooklyn", bedrooms: 2,
+
+bathrooms: 1, pets: true, lowest_price: 1000, highest_price: 3000, realtor_id: 1)
 dick = Client.create(name: "Dick", user_name: "Dick", password: "dick", phone: "534-657-5463", email: "Dick@Flatiron.com", city: "New York", neighborhood: "Midtown", bedrooms: 3,
 bathrooms: 2, pets: true, lowest_price: 1000, highest_price: 3000)
 graham = Client.create(name: "Graham", user_name: "Graham" , password: "graham", phone: "432-436-1233", email: "Graham@Flatiron.com", city: "New York", neighborhood: "Chelsea", bedrooms: 2,
@@ -9,6 +12,8 @@ natalie = Client.create(name: "Natalie", user_name: "Natalie", password: "natali
 bathrooms: 2, pets: true, lowest_price: 1200, highest_price: 5000)
 rishi = Client.create(name: "Rishi", user_name: "Rishi", password: "rishi", phone: "643-465-2346", email: "Rishi@Flatiron.com", city: "New York", neighborhood: "Hell's Kitchen", bedrooms: 4,
 bathrooms: 1, pets: true, lowest_price: 1000, highest_price: 4000)
+omar = Client.create(name: "Omar", user_name: "Omar", password: "omar", phone: "643-445-2346", email: "Rodriguez@ORL.com", city: "New York", neighborhood: "Hell's Kitchen", bedrooms: 4,
+bathrooms: 1, pets: true, lowest_price: 2000, highest_price: 3700)
 property_1 = Listing.create(address: "123 State ST", city: "New York", neighborhood: "Chelsea", bedrooms: 2, bathrooms: 1, pets: false, price: 3300, property_type: "apt")
 property_2 = Listing.create(address: "666 Hells ST", city: "New York", neighborhood: "Brooklyn", bedrooms: 1, bathrooms: 1, pets: true, price: 1200, property_type: "apt")
 property_3 = Listing.create(address: "777 Jesus AVE", city: "New York", neighborhood: "Harlem", bedrooms: 3, bathrooms: 2, pets: true, price: 3500, property_type: "apt")
@@ -23,3 +28,6 @@ property_11 = Listing.create(address: "Natalie Street", city: "New York", neighb
 property_12 = Listing.create(address: "Natalie Ave", city: "New York", neighborhood: "Brooklyn", bedrooms: 3, bathrooms: 2, pets: true, price: 2000, property_type: "condo")
 property_13 = Listing.create(address: "Rishi Street", city: "New York", neighborhood: "Hell's Kitchen", bedrooms: 4, bathrooms: 1, pets: false, price: 1350, property_type: "condo")
 property_14 = Listing.create(address: "Rishi Ave", city: "New York", neighborhood: "Hell's Kitchen", bedrooms: 4, bathrooms: 1, pets: true, price: 3500, property_type: "condo")
+property_15 = Listing.create(address: "Green Street", city: "New York", neighborhood: "Brooklyn", bedrooms: 2, bathrooms: 1, pets: true, price: 2500, property_type: "condo")
+property_16 = Listing.create(address: "Volta Street", city: "New York", neighborhood: "Brooklyn", bedrooms: 2, bathrooms: 1, pets: true, price: 1555, property_type: "condo")
+property_17 = Listing.create(address: "Hella Ave", city: "New York", neighborhood: "Harlem", bedrooms: 2, bathrooms: 1, pets: true, price: 1555, property_type: "condo")

@@ -1,6 +1,5 @@
 def user_check
-  puts "Are you a realtor or a client?\nPlease input 'r' for realtor and 'c' for client\n"
-  user = gets.chomp.downcase
+  user = get_user_check
   while user != 'r' && user != 'c'
     print_invalid_user_input
     user = gets.chomp.downcase
@@ -9,8 +8,7 @@ def user_check
 end
 
 def existing_account_check
-  puts "\nDo you have an account?\nPlease input: 'y' for yes and 'n' for no\n"
-  existing = gets.chomp.downcase
+  existing = get_existing_account_check
   while existing != 'y' && existing != 'n'
     print_invalid_account_input
     existing = gets.chomp.downcase
@@ -20,15 +18,14 @@ end
 
 def main_program
   welcome
-  puts "Press the enter/return to continue"
-  puts "To exit program: type the word 'exit'\n"
-  continue = gets.chomp.downcase
+  continue = get_continue_check
   abort(goodbye) unless continue != "exit"
   user = user_check
   existing = existing_account_check
   if user == 'c'
     if existing == 'y'
       user_name = prompt_client_username
+
       password = prompt_client_password(user_name)
       client = Client.all.find_by(user_name: user_name)
     else

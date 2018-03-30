@@ -74,6 +74,7 @@ end
     client = Client.find_by(realtor_id: nil)
     if client
       client.update(realtor_id: self.id)
+      print_acquired_client(client.name)
     else
       print_no_clients_available
     end
@@ -91,23 +92,15 @@ end
 
   ##### Step 6
   def create_listing
-    puts "\nPlease enter the following information:"
-    puts "\nAddress:\n"
-    address = gets.chomp
-    puts "\nCity:\n"
-    city = gets.chomp
-    puts "\nNeighborhood:\n"
-    neighborhood = gets.chomp
-    puts "\nBedrooms:\n"
-    bedrooms = gets.chomp
-    puts "\nBathrooms\n"
-    bathrooms = gets.chomp
-    puts "\nPrice\n"
-    price = gets.chomp.to_f
-    puts "\nProperty Type\n"
-    property_type = gets.chomp
-    puts "\nPet Friendly? Input 'y' for yes and 'n' for no\n"
-    pets = gets.chomp.downcase
+    print_info_instructions
+    address = get_address
+    city = get_city
+    neighborhood = get_neighborhood
+    bedrooms = get_bedrooms
+    bathrooms = get_bathrooms
+    price = get_price
+    property_type = get_property_type
+    pets = get_pet_friendly
     if pets == 'y'
       pets = true
     else
